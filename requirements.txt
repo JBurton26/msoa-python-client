@@ -1,0 +1,5 @@
+functools
+git+ssh://git@github.com/wearefair/protobuf-to-dict
+Flask
+grpcio
+grpcio-tools

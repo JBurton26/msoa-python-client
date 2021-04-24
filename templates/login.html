@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+<link rel="stylesheet" href="/static/css/simplestyle.css" type="text/css"/>
+{% block content %}
+{% if not session['logged_in'] %}
+<div class="column">
+<form action="/login" method="post" name="form_login">
+
+		<h1>LOGIN</h1>
+		<div class="control-group">
+			<input type="text" class="login-field" name="username" id="username" placeholder="Username"/>
+		</div>
+		<div class="control-group">
+			<input type="text" class="login-field" name="password" id="password" placeholder="Password"/>
+		</div>
+		<input type="submit" name="Login" class="btn btn-primary"  id="login"/>
+		<br>
+
+</form>
+</div>
+
+{% else %}
+<div class="row">
+	<h1> Hello Login template second path       {{session['name']}} <a href="/logout">Logout</a></h1>
+</div>
+{% endif %}
+{% endblock %}

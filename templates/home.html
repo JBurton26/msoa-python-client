@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+  <h2 style="margin-left:5%;">{{loc}}</h2>
+  <table style="width:80%; text-align:left; margin-left:5%; margin-right:15%;">
+      <thead>
+        <tr style="background-color:lightgrey">
+          <th>Name</th>
+          <th>Stock Count</th>
+          <th>SKU</th>
+          <th>PPU</th>
+          <th >Sales (Today)</th>
+          <th>Sales (Month)</th>
+        </tr>
+      </thead>
+      <tbody>
+  {% for item in items %}
+    <tr>
+      <td><a href="/disc/{{item.ID}}">{{item.Name}}</a></td>
+       <td style="text-align:center;">{{item.StockCount}}</td>
+       <td>{{item.ID}}</td>
+       <td style="text-align:right;">£{{item.PPU}}</td>
+       <td></td>
+       <td></td>
+       <td>
+         <div style="display: flex; justify-content: space-around">
+           <div style="width:75%; ">
+             <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">#</span>
+                </div>
+                <input id="addAmount" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+              </div>
+            </div>
+            <div>
+              <button style="border-radius: 12px;">+</button>
+            </div>
+          </div>
+        </td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+{% endblock %}
